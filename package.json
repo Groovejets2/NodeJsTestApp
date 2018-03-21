@@ -1,0 +1,23 @@
+{
+  "name": "node-npm-test",
+  "version": "1.0.0",
+  "description": "Test the npm init function",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "npm",
+    "test",
+    "init"
+  ],
+  "author": "Jonathan Hughes",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "node-static": "^0.7.10"
+  },
+  "devDependencies": {
+    "ws": "3.3.2"
+  }
+}
