@@ -1,8 +1,19 @@
-var http = require("http");
-var fs = require("fs");
+var express = require("express"),
+ 	http = require("http"),
+	fs = require("fs"),
+	path = require("path"),
+	app = express();
 var filePath = "./html/index.html";
 
-function onRequest(request, response) {
+app.use("/images", express.static(__dirname + '/public/images'));
+app.use("/fonts", express.static(__dirname + '/public/fonts'));
+app.use("/js", express.static(__dirname + '/public/js'));
+app.use("/css", express.static(__dirname + '/public/css'));
+
+var router = express.Router();
+
+///*
+app.get("/", function(request, response){
 	response.writeHead(200, {"Content-Type":"text/html"});
 	fs.readFile(filePath, null, function(error, data) {
 		if (error) {
@@ -13,9 +24,8 @@ function onRequest(request, response) {
 		}
 		response.end();
 	});
-}
+});
+//*/
 
-http.createServer(onRequest).listen(9999);
-
-// Console will print the message
+app.listen(9999);
 console.log("Server running at http://127.0.0.1:9999/");
